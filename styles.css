@@ -1,10 +1,78 @@
 body {
-    padding: 0;
+    background: linear-gradient(45deg, rgb(118, 201, 255), rgb(247, 255, 222));
     margin: 0;
+    padding: 0;
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(45deg, rgb(118, 201, 255), rgb(247, 255, 222));
+  }
+  
+  .left-mountain {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(rgb(203, 241, 228), rgb(80, 183, 255));
+    position: absolute;
+    transform: skew(0deg, 44deg);
+    z-index: 2;
+    margin-top: 100px;
+  }
+  
+  .back-mountain {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(rgb(203, 241, 228), rgb(47, 170, 255));
+    position: absolute;
+    z-index: 1;
+    transform: rotate(45deg);
+    left: 110px;
+    top: 225px;
+  }
+  
+  .sun {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    position: absolute;
+    border-radius: 50%;
+    top: -75px;
+    right: -75px;
+  }
+  
+  .penguin {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-top: 75px;
+    z-index: 4;
+    position: relative;
+  }
+  
+  .penguin-head {
+    width: 50%;
+    height: 45%;
+    background: linear-gradient(
+      45deg,
+      gray,
+      rgb(239, 240, 228)
+    );
+    border-radius: 70% 70% 65% 65%;
+    top: 10%;
+    left: 25%;
+    z-index: 1;
+  }
+
+  .penguin-body {
+    width: 53%;
+    height: 45%;
+    background: linear-gradient(
+      45deg,
+      rgb(134, 133, 133) 0%,
+      rgb(234, 231, 231) 25%,
+      white 67%
+    );
+    border-radius: 80% 80% 100% 100%;
+    top: 40%;
+    left: 23.5%;
   }
 
   .ground {
@@ -16,38 +84,23 @@ body {
     margin-top: -58px;
   }
 
-  .penguin {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    margin-top: 75px;
+  /* Targets all descendent elements of the .penguin element */
+  .penguin * {
+    position: absolute;
   }
 
-  .left-mountain {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(rgb(203, 241, 228), rgb(80, 183, 255));
-    position: absolute;
-    transform: skew(0deg, 44deg);
-    z-index: 2;
-    margin-top: 100px
-  }
+  /* pseudo-element that is the first child of the .penguin-body element */
 
-  .back-mountain {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(rgb(203, 241, 228), rgb(47, 170, 255));
+  /* The content CSS property replaces content with a generated value. It can be used to define 
+  what is rendered inside an element or pseudo-element */
+  .penguin-body::before {
+    content: "";
     position: absolute;
-    z-index: 1;
-    transform: rotate(45deg);
-    left: 110px;
-    top: 225px;
-  }
-
-  .sun {
-    position: absolute;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    background-color: yellow;
+    width: 50%;
+    height: 45%;
+    background-color: gray;
+    top: 10%;
+    left: 25%;
+    border-radius: 0% 0% 100% 100%;
+    opacity: 70%;
   }
