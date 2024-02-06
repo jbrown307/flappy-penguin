@@ -52,6 +52,14 @@ body {
     z-index: 4;
     position: relative;
   }
+
+  /* when clicked on, penguin will increase %50 in size */
+
+  /* not-allowed indicates to user that they can't move penguin around with cursor */
+  .penguin:active {
+    transform: scale(1.5);
+    cursor: not-allowed;
+    }
   
   .penguin-head {
     width: 50%;
